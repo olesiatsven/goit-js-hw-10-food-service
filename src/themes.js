@@ -6,7 +6,6 @@ const Theme = {
 const themeToggle = document.querySelector('.theme-switch__toggle');
 const savedInLocalStorage = localStorage.getItem('theme');
 const bodyRef = document.querySelector('body');
-const statusTheme = bodyRef.getAttribute('class');
 
 bodyRef.classList.add(Theme.LIGHT);
 
@@ -19,10 +18,10 @@ themeToggle.addEventListener('click', changeTheme);
 function changeTheme() {
   if (bodyRef.classList.contains(Theme.LIGHT)) {
     bodyRef.classList.replace(Theme.LIGHT, Theme.DARK)
-    localStorage.setItem('theme', statusTheme)
+    localStorage.setItem('theme', bodyRef.getAttribute('class'))
   } else {
     bodyRef.classList.replace(Theme.DARK, Theme.LIGHT)
-    localStorage.setItem('theme', statusTheme)
+    localStorage.setItem('theme', bodyRef.getAttribute('class'))
   }
 }
 
